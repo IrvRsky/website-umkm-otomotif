@@ -1,61 +1,64 @@
-import React from "react";
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from './assets/Icon1.png';
-import { Link } from "react-router-dom";
+import axios from 'axios';
 import {
-  BsCart3,
   BsGrid1X2Fill,
+  BsClipboardDataFill,
   BsChatDotsFill,
   BsGraphUpArrow,
-  BsClipboardDataFill,
-  BsMenuButtonWideFill,
-  BsFillGearFill,
   BsArrowLeftSquare,
-} from "react-icons/bs";
+} from 'react-icons/bs';
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
+  const navigate = useNavigate();
+  
+  const Logout = async () => {
+    try {
+      await axios.delete('http://localhost:5000/logout');
+      localStorage.removeItem('token');
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
   return (
-    <aside
-      id="sidebar"
-      className={openSidebarToggle ? "sidebar-responsive" : ""}
-    >
+    <aside id="sidebar" className={openSidebarToggle ? 'sidebar-responsive' : ''}>
       <div className="sidebar-title">
         <div className="sidebar-brand">
-          <a href="">
-            <img src={logo} alt="MORE"></img>
-          </a>
+          <Link to="#">
+            <img src={logo} alt="MORE" />
+          </Link>
         </div>
         <span className="icon close_icon" onClick={OpenSidebar}>
           X
         </span>
       </div>
-
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <Link to={"/"}>
+          <Link to="/dashboard">
             <BsGrid1X2Fill className="icon" /> Dashboard
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link to={"/pesanan"}>
-            <BsClipboardDataFill className="icon" />
-            Data Pesanan
+          <Link to="/pesanan">
+            <BsClipboardDataFill className="icon" /> Data Pesanan
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link to={"/chat"}>
-          <BsChatDotsFill className="icon" /> Chat
+          <Link to="/chat">
+            <BsChatDotsFill className="icon" /> Chat
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link to={"/pendapatan"}>
+          <Link to="/pendapatan">
             <BsGraphUpArrow className="icon" /> Pendapatan
           </Link>
         </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsArrowLeftSquare className="icon" /> Logout
-          </a>
-        </li>
+        <button onClick={Logout} className='btn-logout'>
+          <BsArrowLeftSquare className="icon-logout" /> Logout
+        </button>
       </ul>
     </aside>
   );

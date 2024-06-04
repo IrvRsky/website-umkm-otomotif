@@ -1,15 +1,30 @@
+// import Admin from "./models/AdminModel.js";
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import db from "./config/Database.js";
+import router from "./routes/index.js";
 
+dotenv.config();
+
+try {
+    await db.authenticate();
+    console.log('Database Connected..');
+} catch (error) {
+    console.error(error);
+}
 
 const app = express();
-app.use(express.json());
 app.use(cors({
-    orignin: ["http://localhost:5173"],
+    origin: 'http://localhost:5173',
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true
 }));
+app.use(cookieParser());
+app.use(express.json());
+app.use(router);
 
-app.listen(5000, ()=> {
-    console.log("Server unning.....");
-})
+app.listen(5000, () => {
+    console.log("Server running at port 5000");
+});

@@ -1,8 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from "react-router-dom";
 import { FaUser, FaUserCircle } from "react-icons/fa";
 import { BsSend } from "react-icons/bs";
 
 function Chat() {
+  const [username, setUsername] = useState("");
+  const [token, setToken] = useState("");
+  const [expire, setExpire] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    refreshToken();
+  }, []);
+
+  const refreshToken = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/token");
+      setToken(response.data.accessToken);
+      const decoded = jwtDecode(response.data.accessToken);
+      setUsername(decoded.username);
+      setExpire(decoded.exp);
+    } catch (error) {
+      if (error.response) {
+        navigate("/");
+      }
+    }
+  };
+
   const [selectedUser, setSelectedUser] = useState(null); // State untuk pengguna yang dipilih
 
   const users = [
@@ -66,12 +92,12 @@ function Chat() {
             <div className="content-chat">
               <div className="blank-chat"></div>
               <div className="sending-chat">
-                <form method="" className="form-chat">
+                <form className="form-chat">
                   <div className="input">
                     <input type="file" className="input-file" />
                   </div>
                   <div className="submit">
-                    <input type="text" className="input-text" />
+                    <input type="text" placeholder="Ketik disini" className="input-text"/>
                     <button type="submit">
                       <BsSend className="icon-btn" />
                     </button>

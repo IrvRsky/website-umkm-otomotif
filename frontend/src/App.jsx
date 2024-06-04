@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
-import './App.css'
-import Header from './Header'
-import Sidebar from './Sidebar'
-import Home from './Home'
-import Pendapatan from './Pendapatan'
-import Pesanan from './Pesanan'
-import Chat from './Chat'
-
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MainLayout from './MainLayout.jsx';
+import Home from './Home.jsx';
+import Pendapatan from './Pendapatan.jsx';
+import Pesanan from './Pesanan.jsx';
+import Chat from './Chat.jsx';
+import Login from './Login.jsx';
+import Register from './Register.jsx';
+import PrivateRoute from './PrivateRoute.jsx';
 
 function App() {
-  const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
 
   const OpenSidebar = () => {
-    setOpenSidebarToggle(!openSidebarToggle)
-  }
+    setOpenSidebarToggle(!openSidebarToggle);
+  };
 
   return (
-    <Router>
-      <div className='grid-container'>
-        <Header OpenSidebar={OpenSidebar}/>
-        <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/pendapatan" element={<Pendapatan />} />
-          <Route path="/pesanan" element={<Pesanan />} />
-          <Route path="/chat" element={<Chat />} />
-        </Routes>
-      </div>
-    </Router>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route
+          element={<MainLayout openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />}
+        >
+          <Route path="/dashboard" element={<PrivateRoute><Home /></PrivateRoute>} />
+          <Route path="/pendapatan" element={<PrivateRoute><Pendapatan /></PrivateRoute>} />
+          <Route path="/pesanan" element={<PrivateRoute><Pesanan /></PrivateRoute>} />
+          <Route path="/chat" element={<PrivateRoute><Chat /></PrivateRoute>} />
+        </Route>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
