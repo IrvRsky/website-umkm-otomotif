@@ -11,20 +11,9 @@ GET https://stirred-guided-bullfrog.ngrok-free.app/admin
 POST https://stirred-guided-bullfrog.ngrok-free.app/register
 Content-Type: application/json
 
-{
-    "email_bengkel": "admin1@gmail.com",
-    "password_bengkel": "admin1",
-    "confPassword_bengkel": "admin1"
-}
-
 ### Login
 POST https://stirred-guided-bullfrog.ngrok-free.app/login
 Content-Type: application/json
-
-{
-    "email_bengkel": "bengkelA@gmail.com",
-    "password_bengkel": "bengkelA"
-}
 
 ### Refresh Token
 GET  https://stirred-guided-bullfrog.ngrok-free.app/token
@@ -47,16 +36,6 @@ POST https://stirred-guided-bullfrog.ngrok-free.app/bengkel/add
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1JZCI6MjEsImVtYWlsX2JlbmdrZWwiOiJiZW5na2VsQUBnbWFpbC5jb20iLCJpYXQiOjE3MTkxMjExODgsImV4cCI6MTcxOTIwNzU4OH0.YyUKUeWy0-Iv_To1cL65EV2kVe3NTbnwqXdjzCME7UM
 
-{
-  "nama_bengkel": "Bengkel Bina Jaya",
-  "no_tlp_bengkel": "085654902099",
-  "alamat": "Jl. Sudirman",
-  "deskripsi": "Ini Bengkel Bina Jaya yang berdiri sejak jaman Soeharto",
-  "latitude": "-6.2524222211",
-  "longtitude": "-6.2304422122",
-  "gambar_bengkel": ""
-}
-
 ### Refresh Token data bengkel
 GET  https://stirred-guided-bullfrog.ngrok-free.app/token-bengkel
 
@@ -68,22 +47,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZ
 POST https://stirred-guided-bullfrog.ngrok-free.app/register-user
 Content-Type: application/json
 
-{
-    "nama_user": "Apalah",
-    "no_tlp": "03203023902",
-    "email": "user@gmail.com",
-    "password": "user",
-    "confPassword": "user"
-}
 
 ### Login user
 POST https://stirred-guided-bullfrog.ngrok-free.app/login-user
 Content-Type: application/json
 
-{
-    "email": "user@gmail.com",
-    "password": "user"
-}
 
 ### Refresh Token User
 GET  https://stirred-guided-bullfrog.ngrok-free.app/token-user
