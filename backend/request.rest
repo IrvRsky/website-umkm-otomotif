@@ -5,7 +5,7 @@ Access-Control-Request-Headers: Content-Type, Authorization
 
 ### Get DATA
 GET https://stirred-guided-bullfrog.ngrok-free.app/admin
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoxLCJlbWFpbF9iZW5na2VsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzE5MTE0MjIzLCJleHAiOjE3MTkxMTQyMzh9.GxfCXB3X1YyVau0bG_R4LrqLAWIm2oDcYIUFVG8SXsU
+# Authorization: Bearer
 
 ### Register
 POST https://stirred-guided-bullfrog.ngrok-free.app/register
@@ -26,7 +26,7 @@ GET https://stirred-guided-bullfrog.ngrok-free.app/bengkel-data
 
 ### GET DATA TABLE BENGKEL
 GET https://stirred-guided-bullfrog.ngrok-free.app/bengkel
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1JZCI6MSwiZW1haWxfYmVuZ2tlbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTcxOTEyMTA4NywiZXhwIjoxNzE5MjA3NDg3fQ.UhJSZ-nk4VodjNa90Oagn-N6KK5rBuqZKxz2ISGY1jU
+Authorization: Bearer 
 
 ### GET DATA TABLE BENGKEL BY ID
 GET https://stirred-guided-bullfrog.ngrok-free.app/bengkel/5
@@ -34,14 +34,14 @@ GET https://stirred-guided-bullfrog.ngrok-free.app/bengkel/5
 ### INSERT DATA TABLE BENGKEL
 POST https://stirred-guided-bullfrog.ngrok-free.app/bengkel/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1JZCI6MjEsImVtYWlsX2JlbmdrZWwiOiJiZW5na2VsQUBnbWFpbC5jb20iLCJpYXQiOjE3MTkxMjExODgsImV4cCI6MTcxOTIwNzU4OH0.YyUKUeWy0-Iv_To1cL65EV2kVe3NTbnwqXdjzCME7UM
+Authorization: Bearer 
 
 ### Refresh Token data bengkel
 GET  https://stirred-guided-bullfrog.ngrok-free.app/token-bengkel
 
 ### Get data user
 GET https://stirred-guided-bullfrog.ngrok-free.app/user
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiaWF0IjoxNzE4ODEwMzY4LCJleHAiOjE3MTg4MTAzODN9.gcLUwy0v7wos2n3DeowvW8vB4_R86yJQbBzK65nbAHg
+Authorization: Bearer 
 
 ### Registers users
 POST https://stirred-guided-bullfrog.ngrok-free.app/register-user
