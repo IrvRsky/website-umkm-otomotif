@@ -6,28 +6,6 @@ import { FaUser, FaUserCircle } from "react-icons/fa";
 import { BsSend } from "react-icons/bs";
 
 function Chat() {
-  const [username, setUsername] = useState("");
-  const [token, setToken] = useState("");
-  const [expire, setExpire] = useState("");
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    refreshToken();
-  }, []);
-
-  const refreshToken = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/token");
-      setToken(response.data.accessToken);
-      const decoded = jwtDecode(response.data.accessToken);
-      setUsername(decoded.username);
-      setExpire(decoded.exp);
-    } catch (error) {
-      if (error.response) {
-        navigate("/");
-      }
-    }
-  };
 
   const [selectedUser, setSelectedUser] = useState(null); // State untuk pengguna yang dipilih
 

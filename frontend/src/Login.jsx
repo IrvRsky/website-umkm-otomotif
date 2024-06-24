@@ -6,8 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email_bengkel, setEmail] = useState("");
+  const [password_bengkel, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [msg, setMsg] = useState("");
 
@@ -20,12 +20,14 @@ const Login = () => {
   const Auth = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', {
-        email: email,
-        password: password,
+      const response = await axios.post('https://stirred-guided-bullfrog.ngrok-free.app/login', {
+        email_bengkel: email_bengkel,
+        password_bengkel: password_bengkel,
       });
-      // Save the token to localStorage
-      localStorage.setItem('token', response.data.accessToken);
+      const accessToken = response.data.accessToken;
+      // Save the token to localStorage and sessionStorage
+      // localStorage.setItem('token', accessToken);
+      sessionStorage.setItem('token', accessToken);
       navigate("/dashboard");
     } catch (error) {
       if (error.response) {
@@ -56,8 +58,9 @@ const Login = () => {
                 id="email"
                 name="email"
                 placeholder="Masukan Email"
-                value={email}
+                value={email_bengkel}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
 
@@ -68,8 +71,9 @@ const Login = () => {
                 id="password"
                 name="password"
                 placeholder="Masukan Kata Sandi"
-                value={password}
+                value={password_bengkel}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <input
                 type="checkbox"

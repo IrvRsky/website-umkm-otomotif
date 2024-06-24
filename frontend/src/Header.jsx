@@ -1,33 +1,34 @@
+// src/Header.jsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import { jwtDecode } from 'jwt-decode';
-import { useNavigate } from "react-router-dom";
-import { BsFillBellFill, BsPersonCircle, BsJustify } from 'react-icons/bs';
+import { jwtDecode } from "jwt-decode"; // Fixed import
+import { BsFillBellFill, BsPersonCircle, BsJustify } from "react-icons/bs";
 
 function Header({ OpenSidebar }) {
-
-  const [username, setUsername] = useState("");
-  const [token, setToken] = useState("");
-  const [expire, setExpire] = useState("");
-  const navigate = useNavigate();
+  const [bengkelData, setBengkelData] = useState(null);
 
   useEffect(() => {
-    refreshToken();
-  }, []);
-
-  const refreshToken = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/token");
-      setToken(response.data.accessToken);
-      const decoded = jwtDecode(response.data.accessToken);
-      setUsername(decoded.username);
-      setExpire(decoded.exp);
-    } catch (error) {
-      if (error.response) {
-        navigate("/");
+    const fetchBengkelData = async () => {
+      try {
+        const token = sessionStorage.getItem("token"); // Assuming token is stored in sessionStorage
+        const response = await axios.get(
+          "https://stirred-guided-bullfrog.ngrok-free.app/bengkel",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true, // For sending credentials (cookies)
+          }
+        );
+        setBengkelData(response.data);
+      } catch (error) {
+        console.error("Error fetching bengkel data:", error);
       }
-    }
-  };
+    };
+
+    fetchBengkelData();
+  }, []);
 
   return (
     <header className="header">
@@ -35,13 +36,16 @@ function Header({ OpenSidebar }) {
         <BsJustify className="icon" onClick={OpenSidebar} />
       </div>
       <div className="header-right">
-        
-        {/* <a href="">
-          <BsFillBellFill className="icon" />
-        </a> */}
-        <a href="" className="profil">
-          <BsPersonCircle className="icon" /> {username}
-        </a>
+        <Link to="/bengkel" className="admin_bengkel">
+          <BsPersonCircle className="icon" />
+          <div className="nama_bengkel">
+            {bengkelData ? (
+              <p>{bengkelData.nama_bengkel}</p>
+            ) : (
+              <p>Loading bengkel data...</p>
+            )}
+          </div>
+        </Link>
       </div>
     </header>
   );

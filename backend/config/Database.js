@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 // HUBUNGKAN KE DATABASE
-const db = new Sequelize('auth_db_bengkel','root','',{
+const db = new Sequelize('more_application','root','2003',{
     host : 'localhost',
     dialect : 'mysql'
 });

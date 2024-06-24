@@ -1,0 +1,10 @@
+import React from 'react';
+import { XAxis as OriginalXAxis, YAxis as OriginalYAxis } from 'recharts';
+
+export const CustomXAxis = ({ dataKey = 'name', ...props }) => {
+  return <OriginalXAxis dataKey={dataKey} {...props} />;
+};
+
+export const CustomYAxis = ({ dataKey = 'uv', ...props }) => {
+  return <OriginalYAxis dataKey={dataKey} {...props} />;
+};

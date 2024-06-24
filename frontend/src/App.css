@@ -66,6 +66,21 @@ body {
 }
 .header-right a {
   color: #fff;
+  text-decoration: none;
+}
+
+.admin_bengkel{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin_bengkel .icon {
+  font-size: 1.8rem;
+}
+
+.nama_bengkel p{
+  font-weight: bold;
 }
 
 .menu-icon {
@@ -1368,6 +1383,237 @@ input[type="text"] {
 }
 /* END LOGIN */
 
+/* DATA BENGKEL */
+.main-bengkel {
+  background-color: #ffffff;
+  border: 2px solid #1d4371;
+  overflow-y: auto;
+  margin: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.title-bengkel{
+  background-color: #1d4371;
+  font-size: 1.2rem;
+}
+
+.title-bengkel h3{
+  padding: 10px 20px;
+  color: #fff;
+  margin: 0;
+}
+
+.data-bengkel{
+  padding:10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.data-bengkel p{
+  border: 1px solid #1d4371;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0;
+  color: black;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.data-bengkel h4{
+  margin: 5px;
+}
+
+.btn-bengkel {
+  padding: 10px 20px 20px;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-edit{
+  background-color: #fff;
+  border: none;
+  color: #08d401;
+  border: 1px solid #08d401;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  width: 100%;
+  padding: 8px 60px;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.btn-edit:active{
+  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+}
+
+.btn-edit:hover{
+  background-color: #08d401;
+  color: #fff;
+}
+
+.btn-back{
+  background-color: #fff;
+  border: none;
+  color: #0191d4;
+  border: 1px solid #0191d4;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  width: 100%;
+  padding: 8px 60px;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.btn-back:active{
+  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+}
+
+.btn-back:hover{
+  background-color: #0191d4;
+  color: #fff;
+}
+/* END DATA BENGKEL */
+
+/* EDIT DATA BENGKEL */
+.card-bengkel{
+  background-color: #fff;
+  padding: 10px 20px;
+}
+
+.field{
+  margin: 0;
+  padding: 0;
+}
+
+.field .label{
+  font-weight: bold;
+}
+
+.textarea{
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 50%;
+  min-height: 40px;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.field-btn {
+  padding: 10px 20px;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.control-btn button {
+  background-color: #fff;
+  border: none;
+  color: #08d401;
+  border: 1px solid #08d401;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  width: 100%;
+  padding: 8px 60px;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.control-btn button:active{
+  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+}
+
+.control-btn button:hover{
+  background-color: #08d401;
+  color: #fff;
+}
+
+.btn-cancel{
+  background-color: #fff;
+  border: none;
+  color: #d40101;
+  border: 1px solid #d40101;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  width: 100%;
+  padding: 8px 60px;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.btn-cancel:active{
+  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+}
+
+.btn-cancel:hover{
+  background-color: #d40101;
+  color: #fff;
+}
+/* END EDIT DATA BENGKEL */
+
 /* Medium <= 992px */
 
 @media screen and (max-width: 992px) {
@@ -1499,6 +1745,18 @@ input[type="text"] {
   .name-user {
     color: #2e2e2e;
     font-size: 1.5rem;
+  }
+
+  .main-bengkel {
+    margin: 10px;
+  }
+
+  .textarea{
+    width: 90%;
+  }
+
+  .side-img{
+    display: none;
   }
 }
 

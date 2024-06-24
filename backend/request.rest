@@ -1,28 +1,92 @@
-GET http://localhost:5000/admin
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1JZCI6OCwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzE3MjQ5Mzg4LCJleHAiOjE3MTcyNDk0MDh9.h0B03-zdKYNXjam52vjkilBehTPeaA_nkg1FFswz3Vs
+### Preflight OPTIONS request for CORS
+Origin: https://destined-separately-fox.ngrok-free.app
+Access-Control-Request-Method: POST, GET, PUT, DELETE
+Access-Control-Request-Headers: Content-Type, Authorization
+
+### Get DATA
+GET https://stirred-guided-bullfrog.ngrok-free.app/admin
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoxLCJlbWFpbF9iZW5na2VsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzE5MTE0MjIzLCJleHAiOjE3MTkxMTQyMzh9.GxfCXB3X1YyVau0bG_R4LrqLAWIm2oDcYIUFVG8SXsU
 
 ### Register
-POST http://localhost:5000/register
+POST https://stirred-guided-bullfrog.ngrok-free.app/register
 Content-Type: application/json
 
-# {
-#     "username": "admin",
-#     "email": "admin@gmail.com",
-#     "password": "admin",
-#     "confPassword": "admin"
-# }
+{
+    "email_bengkel": "admin1@gmail.com",
+    "password_bengkel": "admin1",
+    "confPassword_bengkel": "admin1"
+}
 
 ### Login
-POST http://localhost:5000/login
+POST https://stirred-guided-bullfrog.ngrok-free.app/login
 Content-Type: application/json
 
-# {
-#     "email": "admin@gmail.com",
-#     "password": "admin"
-# }
+{
+    "email_bengkel": "bengkelA@gmail.com",
+    "password_bengkel": "bengkelA"
+}
 
 ### Refresh Token
-GET  http://localhost:5000/token
+GET  https://stirred-guided-bullfrog.ngrok-free.app/token
 
 ### Logout
-DELETE  http://localhost:5000/logout
+DELETE  https://stirred-guided-bullfrog.ngrok-free.app/logout
+
+### GET DATA TABLE BENGKEL WITHOUT LOGIN
+GET https://stirred-guided-bullfrog.ngrok-free.app/bengkel-data
+
+### GET DATA TABLE BENGKEL
+GET https://stirred-guided-bullfrog.ngrok-free.app/bengkel
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1JZCI6MSwiZW1haWxfYmVuZ2tlbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTcxOTEyMTA4NywiZXhwIjoxNzE5MjA3NDg3fQ.UhJSZ-nk4VodjNa90Oagn-N6KK5rBuqZKxz2ISGY1jU
+
+### GET DATA TABLE BENGKEL BY ID
+GET https://stirred-guided-bullfrog.ngrok-free.app/bengkel/5
+
+### INSERT DATA TABLE BENGKEL
+POST https://stirred-guided-bullfrog.ngrok-free.app/bengkel/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1JZCI6MjEsImVtYWlsX2JlbmdrZWwiOiJiZW5na2VsQUBnbWFpbC5jb20iLCJpYXQiOjE3MTkxMjExODgsImV4cCI6MTcxOTIwNzU4OH0.YyUKUeWy0-Iv_To1cL65EV2kVe3NTbnwqXdjzCME7UM
+
+{
+  "nama_bengkel": "Bengkel Bina Jaya",
+  "no_tlp_bengkel": "085654902099",
+  "alamat": "Jl. Sudirman",
+  "deskripsi": "Ini Bengkel Bina Jaya yang berdiri sejak jaman Soeharto",
+  "latitude": "-6.2524222211",
+  "longtitude": "-6.2304422122",
+  "gambar_bengkel": ""
+}
+
+### Refresh Token data bengkel
+GET  https://stirred-guided-bullfrog.ngrok-free.app/token-bengkel
+
+### Get data user
+GET https://stirred-guided-bullfrog.ngrok-free.app/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiaWF0IjoxNzE4ODEwMzY4LCJleHAiOjE3MTg4MTAzODN9.gcLUwy0v7wos2n3DeowvW8vB4_R86yJQbBzK65nbAHg
+
+### Registers users
+POST https://stirred-guided-bullfrog.ngrok-free.app/register-user
+Content-Type: application/json
+
+{
+    "nama_user": "Apalah",
+    "no_tlp": "03203023902",
+    "email": "user@gmail.com",
+    "password": "user",
+    "confPassword": "user"
+}
+
+### Login user
+POST https://stirred-guided-bullfrog.ngrok-free.app/login-user
+Content-Type: application/json
+
+{
+    "email": "user@gmail.com",
+    "password": "user"
+}
+
+### Refresh Token User
+GET  https://stirred-guided-bullfrog.ngrok-free.app/token-user
+
+### Get data Article
+GET https://stirred-guided-bullfrog.ngrok-free.app/artikel

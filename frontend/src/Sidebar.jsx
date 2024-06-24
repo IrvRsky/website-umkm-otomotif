@@ -15,8 +15,8 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
   
   const Logout = async () => {
     try {
-      await axios.delete('http://localhost:5000/logout');
-      localStorage.removeItem('token');
+      await axios.delete('https://stirred-guided-bullfrog.ngrok-free.app/logout');
+      sessionStorage.removeItem('token');
       navigate("/");
     } catch (error) {
       console.log(error);

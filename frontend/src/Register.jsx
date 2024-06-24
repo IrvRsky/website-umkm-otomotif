@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email_bengkel, setEmail] = useState("");
+  const [password_bengkel, setPassword] = useState("");
+  const [confirmPasswordBengkel, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [msg, setMsg] = useState("");
   
@@ -22,11 +22,10 @@ const Register = () => {
   const Register = async(e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/register',{
-        username: username,
-        email: email,
-        password: password,
-        confPassword: confirmPassword
+      await axios.post('https://stirred-guided-bullfrog.ngrok-free.app/register',{
+        email_bengkel: email_bengkel,
+        password_bengkel: password_bengkel,
+        confPassword_bengkel: confirmPasswordBengkel
       });
       navigate("/");
     } catch (error) {
@@ -51,7 +50,7 @@ const Register = () => {
         </div>
 
         <form onSubmit={ Register }>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="username">Nama Lengkap</label>
             <input
               type="text"
@@ -61,7 +60,7 @@ const Register = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-          </div>
+          </div> */}
 
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -70,8 +69,9 @@ const Register = () => {
               id="email"
               name="email"
               placeholder="Masukan Email"
-              value={email}
+              value={email_bengkel}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
 
@@ -82,8 +82,9 @@ const Register = () => {
               id="password"
               name="password"
               placeholder="Masukan Kata Sandi"
-              value={password}
+              value={password_bengkel}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
 
@@ -94,8 +95,9 @@ const Register = () => {
               id="confirm-password"
               name="password"
               placeholder="Masukan Konfirmasi Kata Sandi"
-              value={confirmPassword}
+              value={confirmPasswordBengkel}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              required
             />
             <input
               type="checkbox"

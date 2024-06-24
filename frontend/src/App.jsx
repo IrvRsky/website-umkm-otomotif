@@ -8,6 +8,9 @@ import Chat from './Chat.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
+import EditProfile from './EditProfile.jsx';
+import Artikel from './Artikel.jsx';
+import Bengkel from './Bengkel.jsx';
 
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -26,6 +29,9 @@ function App() {
           <Route path="/pendapatan" element={<PrivateRoute><Pendapatan /></PrivateRoute>} />
           <Route path="/pesanan" element={<PrivateRoute><Pesanan /></PrivateRoute>} />
           <Route path="/chat" element={<PrivateRoute><Chat /></PrivateRoute>} />
+          <Route path="/edit" element={<PrivateRoute><EditProfile /></PrivateRoute>} />
+          <Route path="/artikel" element={<PrivateRoute><Artikel /></PrivateRoute>} />
+          <Route path="/bengkel" element={<PrivateRoute><Bengkel /></PrivateRoute>} />
         </Route>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
